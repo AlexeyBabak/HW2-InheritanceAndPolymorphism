@@ -1,0 +1,56 @@
+﻿using BankApp;
+
+IBank bank = new Bank();
+
+// Create Client 1
+IClient client1 = new Client("Alexey", "Babak");
+client1.Verify();
+
+bank.AddClient(client1);
+
+IAccount account1 = bank.OpenAccount(client1);
+IAccount account2 = bank.OpenAccount(client1);
+
+account1.SetInterestRate(10);
+
+account1.Deposit(new Money(1000, 50));
+account2.Deposit(new Money(500, 25));
+
+account1.Withdraw(new Money(200, 0));
+
+client1.TransferMoney(account1, account2, new Money(300, 50));
+
+// Create Client 2
+
+IClient client2 = new Client("John", "Doe");
+client2.Verify();
+
+bank.AddClient(client2);
+
+IAccount account3 = bank.OpenAccount(client2);
+IAccount account4 = bank.OpenAccount(client2);
+
+account4.SetInterestRate(15);
+
+account3.Deposit(new Money(1000, 50));
+account4.Deposit(new Money(500, 25));
+
+account3.Withdraw(new Money(200, 0));
+
+client1.TransferMoney(account3, account4, new Money(300, 50));
+
+// Show the data:
+BankDisplayService.ShowAllClients(bank);
+BankDisplayService.ShowAllAccounts(bank);
+
+// Client 1
+BankDisplayService.ShowClientAccounts(client1);
+
+BankDisplayService.ShowAccountStats(account1);
+BankDisplayService.ShowAccountStats(account2);
+
+// Client 2
+BankDisplayService.ShowClientAccounts(client2);
+
+BankDisplayService.ShowAccountStats(account3);
+BankDisplayService.ShowAccountStats(account4);
