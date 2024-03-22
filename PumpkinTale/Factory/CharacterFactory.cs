@@ -5,21 +5,16 @@ namespace PumpkinTale.Factory
 {
     public class CharacterFactory : ICharacterFactory
     {
-        public ICharacter CreateAnimal(string type)
+        public ICharacter CreateCharacter(string type)
         {
-            switch (type.ToLower())
+            return type.ToLower() switch
             {
-                case "grandfather":
-                    return new Grandfather();
-                case "grandmother":
-                    return new Grandmother();
-                case "granddaughter":
-                    return new Granddaughter();
-                case "dog":
-                    return new Dog();
-                default:
-                    throw new ArgumentException("Unknown type", nameof(type));
-            }
+                "grandfather" => new Grandfather(),
+                "grandmother" => new Grandmother(),
+                "granddaughter" => new Granddaughter(),
+                "dog" => new Dog(),
+                _ => throw new ArgumentException("Unknown type", nameof(type)),
+            };
         }
     }
 }

@@ -4,6 +4,6 @@ namespace PumpkinTale.Factory
 {
     public interface ICharacterFactory
     {
-        ICharacter CreateAnimal(string type);
+        ICharacter CreateCharacter(string type);
     }
 }
