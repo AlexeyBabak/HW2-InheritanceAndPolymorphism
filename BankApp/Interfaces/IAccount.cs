@@ -1,15 +1,17 @@
-﻿namespace BankApp
+﻿using BankApp.Models;
+
+namespace BankApp
 {
     public interface IAccount
     {
         Guid AccountId { get; }
         Money Balance { get; }
-        decimal InterestRate { get; }
+        int InterestRate { get; }
 
         void AddTransaction(ITransaction transaction);
         void Deposit(Money amount);
         IReadOnlyList<ITransaction> GetTransactions();
-        void SetInterestRate(decimal newRate);
-        bool Withdraw(Money amount);
+        void SetInterestRate(int newRate);
+        void Withdraw(Money amount);
     }
 }

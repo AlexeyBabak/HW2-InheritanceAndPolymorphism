@@ -1,4 +1,6 @@
-﻿namespace BankApp
+﻿using BankApp.Models;
+
+namespace BankApp
 {
     public interface IMoney
     {

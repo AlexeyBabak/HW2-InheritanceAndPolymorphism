@@ -1,4 +1,6 @@
-﻿namespace BankApp
+﻿using BankApp.Models;
+
+namespace BankApp
 {
     public interface IClient
     {
@@ -10,7 +12,7 @@
         IEnumerable<Money> GetAccountBalances();
         IEnumerable<IAccount> GetClientAccounts();
         bool HasNegativeBalanceHistory();
-        bool TransferMoney(IAccount fromAccount, IAccount toAccount, Money amount);
+        void TransferMoney(IAccount fromAccount, IAccount toAccount, Money amount);
         void Verify();
     }
 }
