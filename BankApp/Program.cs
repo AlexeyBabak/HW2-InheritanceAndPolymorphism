@@ -1,4 +1,6 @@
 ﻿using BankApp;
+using BankApp.Services;
+using BankApp.Models;
 
 IBank bank = new Bank();
 
@@ -37,7 +39,7 @@ account4.Deposit(new Money(500, 25));
 
 account3.Withdraw(new Money(200, 0));
 
-client1.TransferMoney(account3, account4, new Money(300, 50));
+client2.TransferMoney(account3, account4, new Money(300, 50));
 
 // Show the data:
 BankDisplayService.ShowAllClients(bank);

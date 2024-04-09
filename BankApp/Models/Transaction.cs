@@ -1,4 +1,4 @@
-﻿namespace BankApp
+﻿namespace BankApp.Models
 {
     public enum TransactionType { Deposit, Withdrawal, Transfer }
 
