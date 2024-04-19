@@ -5,7 +5,7 @@
         private readonly List<IClient> _clients = new();
         private readonly List<IAccount> _accounts = new();
 
-        public void AddClient(IClient client)
+        public async Task AddClientAsync(IClient client)
         {
             try
             {
@@ -14,7 +14,7 @@
                     throw new ArgumentNullException(nameof(client), "Client cannot be null.");
                 }
 
-                _clients.Add(client);
+                await Task.Run(() => _clients.Add(client));
             }
             catch (Exception ex)
             {
@@ -22,7 +22,7 @@
             }
         }
 
-        public IAccount OpenAccount(IClient client)
+        public async Task<IAccount> OpenAccountAsync(IClient client)
         {
             try
             {
@@ -37,8 +37,12 @@
                 }
 
                 var account = new Account(0);
-                _accounts.Add(account);
-                client.AddAccount(account);
+                await Task.Run(() =>
+                {
+                    _accounts.Add(account);
+                    client.AddAccount(account);
+                });
+
                 return account;
             }
             catch (Exception ex)
@@ -46,7 +50,6 @@
                 throw new ApplicationException("An error occurred while opening a new account.", ex);
             }
         }
-
 
         private static bool CanHaveAccount(IClient client)
         {

@@ -8,10 +8,10 @@ IBank bank = new Bank();
 IClient client1 = new Client("Alexey", "Babak");
 client1.Verify();
 
-bank.AddClient(client1);
+await bank.AddClientAsync(client1);
 
-IAccount account1 = bank.OpenAccount(client1);
-IAccount account2 = bank.OpenAccount(client1);
+IAccount account1 = await bank.OpenAccountAsync(client1);
+IAccount account2 = await bank.OpenAccountAsync(client1);
 
 account1.SetInterestRate(10);
 
@@ -27,10 +27,10 @@ client1.TransferMoney(account1, account2, new Money(300, 50));
 IClient client2 = new Client("John", "Doe");
 client2.Verify();
 
-bank.AddClient(client2);
+await bank.AddClientAsync(client2);
 
-IAccount account3 = bank.OpenAccount(client2);
-IAccount account4 = bank.OpenAccount(client2);
+IAccount account3 = await bank.OpenAccountAsync(client2);
+IAccount account4 = await bank.OpenAccountAsync(client2);
 
 account4.SetInterestRate(15);
 

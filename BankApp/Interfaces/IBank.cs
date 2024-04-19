@@ -2,9 +2,9 @@
 {
     public interface IBank
     {
-        void AddClient(IClient client);
+        Task AddClientAsync(IClient client);
+        Task<IAccount> OpenAccountAsync(IClient client);
         IEnumerable<IAccount> GetAllAccounts();
         IEnumerable<IClient> GetAllClients();
-        IAccount OpenAccount(IClient client);
     }
 }
