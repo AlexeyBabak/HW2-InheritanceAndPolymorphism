@@ -1,12 +1,11 @@
 ﻿using BankApp.Models;
 
-namespace BankApp
+namespace BankApp;
+
+public interface ITransaction
 {
-    public interface ITransaction
-    {
-        Money Amount { get; }
-        DateTime Date { get; }
-        Guid? RelatedAccountId { get; }
-        TransactionType Type { get; }
-    }
+    Money Amount { get; }
+    DateTime Date { get; }
+    Guid? RelatedAccountId { get; }
+    TransactionType Type { get; }
 }

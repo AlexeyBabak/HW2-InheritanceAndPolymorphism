@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,5 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Alexey.Babak\OneDrive - International Bridge, Inc\Work\SandBox\Hillel\HW2-InheritanceAndPolymorphism\BankApp\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Alexey.Babak\OneDrive - International Bridge, Inc\Work\SandBox\Hillel\HW2-InheritanceAndPolymorphism\BankApp\.editorconfig" />
+  </ItemGroup>
 
 </Project>
